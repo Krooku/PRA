@@ -6,9 +6,13 @@ import org.quartz.SchedulerException;
 import org.quartz.Trigger;
 import org.quartz.impl.StdSchedulerFactory;
 
+
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
+import static org.quartz.TriggerBuilder.*;
+import static org.quartz.CronScheduleBuilder.*;
+import static org.quartz.DateBuilder.*;
 
 public class JobMapScheduler {
 
@@ -26,11 +30,15 @@ public class JobMapScheduler {
 
             // Trigger the job to run now, and then repeat every 40 seconds
             Trigger trigger = newTrigger()
-                    .withIdentity("trigger1", "group1")
+                    /*.withIdentity("trigger1", "group1")
                     .startNow()
                     .withSchedule(simpleSchedule()
                             .withIntervalInSeconds(1)
                             .repeatForever())
+                    .build();*/
+                    .withIdentity("trigger1", "group1")
+                    .startNow()
+                    .withSchedule(cronSchedule("* 45 16 ? * MON-FRI"))
                     .build();
 
 

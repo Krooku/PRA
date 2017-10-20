@@ -7,6 +7,6 @@ public class SimpleJob implements org.quartz.Job {
 
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
 
-        System.out.println("Executuja mnie");
+        System.out.println("Inna czestotliwoscxd");
     }
 }

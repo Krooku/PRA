@@ -29,7 +29,7 @@ public class SimpleScheduler {
                     .withIdentity("trigger1", "group1")
                     .startNow()
                     .withSchedule(simpleSchedule()
-                            .withIntervalInSeconds(1)
+                            .withIntervalInSeconds(2)
                             .repeatForever())
                     .build();
 
@@ -41,7 +41,7 @@ public class SimpleScheduler {
             scheduler.start();
 
 
-            Thread.sleep(6000);
+            Thread.sleep(8000);
 
             scheduler.shutdown();
 

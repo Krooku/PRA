@@ -12,4 +12,3 @@ public class HelloWorld {
         logger.info("To już drugie zajęcia");
     }
 }
-
