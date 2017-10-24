@@ -38,7 +38,7 @@ public class JobMapScheduler {
                     .build();*/
                     .withIdentity("trigger1", "group1")
                     .startNow()
-                    .withSchedule(cronSchedule("* 45 16 ? * MON-FRI"))
+                    .withSchedule(cronSchedule("0/20 * * ? * MON-FRI"))
                     .build();
 
 

@@ -11,6 +11,12 @@ public class JobWithMap  implements org.quartz.Job{
 
             JobDataMap dataMap = context.getJobDetail().getJobDataMap();
 
+            System.out.println(context.getFireTime());
+            System.out.println(context.getFireTime().getSeconds() + " " + context.getFireTime().getMinutes() + " " + context.getFireTime().getHours());
+            System.out.println(context.getNextFireTime());
+            System.out.println(context.getNextFireTime().getSeconds() + " " + context.getNextFireTime().getMinutes() + " " + context.getNextFireTime().getHours());
+
+
             //read values
             String str = "";
             String jobSays = dataMap.getString("jobSays");
