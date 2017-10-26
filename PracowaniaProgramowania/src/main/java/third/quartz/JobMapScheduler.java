@@ -8,11 +8,8 @@ import org.quartz.impl.StdSchedulerFactory;
 
 
 import static org.quartz.JobBuilder.newJob;
-import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
-import static org.quartz.TriggerBuilder.*;
 import static org.quartz.CronScheduleBuilder.*;
-import static org.quartz.DateBuilder.*;
 
 public class JobMapScheduler {
 
@@ -49,9 +46,9 @@ public class JobMapScheduler {
             scheduler.start();
 
 
-            //Thread.sleep(6000);
+            //Thread.sleep(10000);
 
-            scheduler.shutdown();
+            //scheduler.shutdown();
 
         } catch (SchedulerException se) {
             se.printStackTrace();

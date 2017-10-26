@@ -5,12 +5,16 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import third.quartz.JobWithMap;
+import third.quartz.JobWithMapSql;
 
 import static org.junit.Assert.*;
 
 public class AdvanceMathTest {
 
     AdvanceMath math;
+    JobWithMap c;
+    JobWithMapSql d;
     final static Logger logger = Logger.getLogger(AdvanceMath.class);
 
     HelloWorld hello;
@@ -19,17 +23,19 @@ public class AdvanceMathTest {
     public void setUp(){
         logger.info("Odpalam setUpa");
         math = new AdvanceMath();
+        c = new JobWithMap();
+        d = new JobWithMapSql();
     }
     @Test
     public void projektSqlTest()
     {
-        Boolean p = hello.isCorrectquerry("select * from cos order by ASC");
+        Boolean p = d.isCorrectquerry("select * from tabela order by ASC");
         assertTrue(p == true);
     }
     @Test
     public void projektTest()
     {
-        Boolean p = math.projekt_1(13,45);
+        Boolean p = c.getBreak(13,45);
         assertTrue(p == false);
     }
     @Test
