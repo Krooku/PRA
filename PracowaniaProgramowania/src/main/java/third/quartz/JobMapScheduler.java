@@ -19,20 +19,12 @@ public class JobMapScheduler {
             // Grab the Scheduler instance from the Factory
             Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 
-            // define the job and tie it to our HelloJob class
             JobDetail job = newJob(JobWithMap.class)
                     .withIdentity("myJob", "group1") // name "myJob", group "group1"
                     .usingJobData("jobSays", "Hello World!")
                     .build();
 
-            // Trigger the job to run now, and then repeat every 40 seconds
             Trigger trigger = newTrigger()
-                    /*.withIdentity("trigger1", "group1")
-                    .startNow()
-                    .withSchedule(simpleSchedule()
-                            .withIntervalInSeconds(1)
-                            .repeatForever())
-                    .build();*/
                     .withIdentity("trigger1", "group1")
                     .startNow()
                     .withSchedule(cronSchedule("0 * * ? * MON-FRI"))

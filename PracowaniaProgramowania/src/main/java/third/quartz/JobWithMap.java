@@ -13,20 +13,18 @@ public class JobWithMap  implements org.quartz.Job
 
             JobDataMap dataMap = context.getJobDetail().getJobDataMap();
 
-            System.out.println(context.getFireTime());
-
             this.minutes_to_end = -1;
             boolean przerwa = getBreak(context.getFireTime().getHours(), context.getFireTime().getMinutes());
 
             if(this.minutes_to_end != -1) {
                 if (przerwa) {
-                    System.out.println(this.minutes_to_end + " minut zostało do końca przerwy.");
+                    System.out.println(this.minutes_to_end + " minut zostało do końca przerwy.\n");
                 } else {
-                    System.out.println(this.minutes_to_end + " minut zostało do końca zajęć.");
+                    System.out.println(this.minutes_to_end + " minut zostało do końca zajęć.\n");
                 }
             }
             else
-                System.out.println("Nie ma aktualnie zajęć.");
+                System.out.println("Nie ma aktualnie zajęć.\n");
         }
     }
 

@@ -25,7 +25,7 @@ public class JobWithMapSql implements Job
 
             File plik = new File(path);
 
-            String prev_sql = dataMap.getString("lista");
+            /*String prev_sql = dataMap.getString("lista");
 
             System.out.print("Podaj nr zadania: ");
             int nr = in.nextInt();
@@ -43,8 +43,8 @@ public class JobWithMapSql implements Job
                 while(!flag)
                 {
                     System.out.print("Podaj treść zapytania SQL jeszcze raz: ");
-                    String sql1 = in.nextLine();
-                    if(isCorrectquerry(sql1))
+                    sql = in.nextLine();
+                    if(isCorrectquerry(sql))
                     {
                         System.out.print("Dobre zapytanie\n");
                         flag = true;
@@ -56,19 +56,18 @@ public class JobWithMapSql implements Job
                 dataMap.put("lista", nr + "." + sql);
             else
                 dataMap.put("lista", prev_sql + "-" + nr + "." + sql);
-
-            PrintWriter zapis = null;
+            */
+            /*PrintWriter zapis = null;
             try {
                 zapis = new PrintWriter(plik.getPath());
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            System.out.println(sort_queries(dataMap.getString("lista")));
             for(int i = 0; i < sort_queries(dataMap.getString("lista")).size(); i++)
             {
                 zapis.println(sort_queries(dataMap.getString("lista")).get(i));
             }
-            zapis.close();
+            zapis.close();*/
         }
     }
 
