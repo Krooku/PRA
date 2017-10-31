@@ -8,12 +8,7 @@ import static org.quartz.JobBuilder.newJob;
 import static org.quartz.TriggerBuilder.newTrigger;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 
 public class JobMapSchedulerSql {
@@ -21,30 +16,15 @@ public class JobMapSchedulerSql {
     public static void main(String[] args) throws InterruptedException, IOException {
 
         //tworzenie pliku
+        int  i = 0;
         File plik = new File("odp.txt");
-        if(!plik.exists())
+        while (plik.exists())
         {
-            plik.createNewFile();
-        }
-        else
-        {
-            int  i = 1;
+            i++;
             plik = new File("odp" + i + ".txt");
-            if(plik.exists()) {
-                while (plik.exists()) {
-                    i++;
-                    plik = new File("odp" + i + ".txt");
-                    if (!plik.exists()) {
-                        plik.createNewFile();
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                plik.createNewFile();
-            }
         }
+
+        plik.createNewFile();
         ////////////////////////////////////////////
 
         try {
@@ -53,100 +33,104 @@ public class JobMapSchedulerSql {
             /////////////////////////////////////////////////////
 
             JobDetail job1 = newJob(JobWithMap.class)
-                    .withIdentity("myJob", "group2") // name "myJob", group "group1"
-                    .usingJobData("jobSays", "Hello World!")
+                    .withIdentity("myJob", "group1") // name "myJob", group "group1"
                     .build();
 
             Trigger trigger1 = newTrigger()
-                    .withIdentity("trigger1", "group2")
                     .startNow()
                     .withSchedule(cronSchedule("0 * * ? * MON-FRI"))
                     .build();
 
-            ////////////////////////////////////////////////////
-
-            /*JobDetail job = newJob(JobWithMapSql.class)
-                    .withIdentity("myJob", "group1") // name "myJob", group "group1"
-                    .usingJobData("lista", "")
-                    .usingJobData("plik", plik.getPath())
-                    .build();
-
-
-            Trigger trigger = newTrigger()
-                    .withIdentity("trigger1", "group1")
-                    .startNow()
-                    .withSchedule(cronSchedule("0/30 * * ? * *"))
-                    .build();*/
-
-            /////////////////////////////////////////////////////
-
-
-
             // Tell quartz to schedule the job using our trigger
             scheduler.scheduleJob(job1, trigger1);
-            //scheduler.scheduleJob(job, trigger);
             // and start it off
             scheduler.start();
+
+            //pobieranie zapytan od uzytkownika i dodanie ich do stringa
             Scanner in = new Scanner(System.in);
-            int nr = 1;
+            int nr;
             boolean first = true;
             String lista = "";
-            while(nr != 0)
-            {
-                System.out.print("Podaj nr zadania: ");
-                nr = in.nextInt();
-                in.nextLine();
-                if(nr != 0) {
-                    System.out.print("Podaj treść zapytania SQL: ");
-                    String sql = in.nextLine();
-                    if (isCorrectquerry(sql)) {
-                        System.out.print("Dobre zapytanie\n");
-                        if (first) {
-                            lista = nr + "." + sql;
-                        } else {
-                            lista += "-" + nr + "." + sql;
-                        }
-                        first = false;
-                    } else {
-                        System.out.print("Błędne zapytanie\n");
-                        boolean flag = false;
-                        while (!flag) {
-                            System.out.print("Podaj treść zapytania SQL jeszcze raz: ");
-                            sql = in.nextLine();
-                            if (isCorrectquerry(sql)) {
-                                if (first) {
-                                    lista = nr + "." + sql;
-                                } else {
-                                    lista += "-" + nr + "." + sql;
-                                }
-                                first = false;
-                                System.out.print("Dobre zapytanie\n");
-                                flag = true;
+            System.out.print("Podaj nr zadania: ");
 
+            //po podaniu numeru zadanie 0 wychodzi z petli zbierajacej tresci zapytan
+            while((nr = in.nextInt()) != 0)
+            {
+                in.nextLine();
+                System.out.print("Podaj treść zapytania SQL: ");
+                String sql = in.nextLine();
+                if (isCorrectquery(sql))
+                {
+                    System.out.print("Dobre zapytanie\n");
+                    if (first) {
+                        lista = nr + "." + sql;
+                    } else {
+                        lista += "-" + nr + "." + sql;
+                    }
+                    first = false;
+                }
+                else
+                {
+                    System.out.print("Błędne zapytanie\n");
+                    boolean flag = false;
+                    while (!flag)
+                    {
+                        System.out.print("Podaj treść zapytania SQL jeszcze raz: ");
+                        sql = in.nextLine();
+                        if (isCorrectquery(sql))
+                        {
+                            if (first)
+                            {
+                                lista = nr + "." + sql;
                             }
+                            else
+                            {
+                                lista += "-" + nr + "." + sql;
+                            }
+                            first = false;
+                            System.out.print("Dobre zapytanie\n");
+                            flag = true;
+
                         }
                     }
                 }
+                System.out.print("Podaj nr zadania: ");
+                /*JobDetail job2 = newJob(JobWithMapSql.class)
+                        .usingJobData("lista", lista)
+                        .usingJobData("path", plik.getPath())
+                        .build();
+                Trigger trigger2 = newTrigger()
+                        .startNow()
+                        .withSchedule(cronSchedule("0/30 * * ? * *"))
+                        .build();
+
+                scheduler.scheduleJob(job2, trigger2);
+                scheduler.start();*/
             }
-            PrintWriter zapis = null;
-            try {
-                zapis = new PrintWriter(plik.getPath());
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            for(int i = 0; i < sort_queries(lista).size(); i++)
-            {
-                zapis.println(sort_queries(lista).get(i));
-            }
-            zapis.close();
+
+            ////////////////////////////////////////////////////
+            JobDetail job2 = newJob(JobWithMapSql.class)
+                    .usingJobData("lista", lista)
+                    .usingJobData("path", plik.getPath())
+                    .build();
+            Trigger trigger2 = newTrigger()
+                    .startNow()
+                    .withSchedule(cronSchedule("0/30 * * ? * *"))
+                    .build();
+
+            scheduler.scheduleJob(job2, trigger2);
+            scheduler.start();
+
+            //////////////////////////////////////////////////////////////////////////////////////
+
         } catch (SchedulerException se) {
             se.printStackTrace();
         }
     }
-    public static boolean isCorrectquerry(String querry)
+    public static boolean isCorrectquery(String query)
     {
         String wynik[] = null;
-        wynik = querry.split(" ");
+        wynik = query.split(" ");
         int len = wynik.length;
 
         int prev = 0;
@@ -179,42 +163,5 @@ public class JobMapSchedulerSql {
             }
         }
         return true;
-    }
-    public static List sort_queries(String lista)
-    {
-        List<String> list = new ArrayList<String>();
-
-        String wynik[] = null;
-        wynik = lista.split("-");
-        int len = wynik.length;
-        for(int i = 0; i < len; i++)
-        {
-
-            for(int j = 0; j < len; j++)
-            {
-                if(i != j && wynik[i].charAt(0) == wynik[j].charAt(0))
-                {
-                    if(j > i)
-                    {
-                        wynik[i] = "d";
-                    }
-                    else
-                    {
-                        wynik[j] = "d";
-                    }
-                }
-
-            }
-
-        }
-        for(int i = 0; i < len; i++)
-        {
-            if(wynik[i] != "d")
-            {
-                list.add(wynik[i]);
-            }
-        }
-        Collections.sort(list);
-        return list;
     }
 }
