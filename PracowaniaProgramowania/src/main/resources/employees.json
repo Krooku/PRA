@@ -1,52 +1,96 @@
-[ {
-  "id" : 0,
-  "firstName" : "Jan",
-  "lastName" : "Polak-1688138190",
-  "pieniadz": 100,
-  "pesel" : 556158405,
-  "birth": "2017-11-09 20:46:42",
-  "address" : {
+[
+  {
+    "refId" : 1,
     "id" : 0,
-    "street" : "poznanska",
-    "city" : "poznan",
-    "nr" : "1",
-    "housenr" : null,
-    "postcode" : "99090"
-  },
-  "managers" : [ ],
-  "subworkers" : [ {
-    "id" : 0,
-    "firstName" : "Roman",
-    "lastName" : "Polak-1250083121",
-    "pieniadz": 100,
-    "pesel" : 1829397351,
-    "birth": "2017-11-09 20:46:42",
-    "address" : {
+    "nick" : "kkOma",
+    "lane" : "coach",
+    "team" : "SKT T1",
+    "avgpp" : 0,
+    "players" : [ {
+      "refId" : 2,
       "id" : 0,
-      "street" : "poznanska",
-      "city" : "poznan",
-      "nr" : "1",
-      "housenr" : null,
-      "postcode" : "99090"
-    },
-    "managers" : [ ],
-    "subworkers" : [ ]
-  } ]
-}, {
-  "id" : 0,
-  "firstName" : "Roman",
-  "lastName" : "Polak-1250083121",
-  "pieniadz": 100,
-  "pesel" : 1829397351,
-  "birth": "2017-11-09 20:46:42",
-  "address" : {
-    "id" : 0,
-    "street" : "poznanska",
-    "city" : "poznan",
-    "nr" : "1",
-    "housenr" : null,
-    "postcode" : "99090"
+      "nick" : "Faker",
+      "lane" : "MID",
+      "team" : "SKT T1",
+      "avgpp" : 147,
+      "players" : [ ]
+    }, {
+      "refId" : 3,
+      "id" : 0,
+      "nick" : "Huni",
+      "lane" : "TOP",
+      "team" : "SKT T1",
+      "avgpp" : 155,
+      "players" : [ ]
+    }, {
+      "refId" : 4,
+      "id" : 0,
+      "nick" : "Peanut",
+      "lane" : "JNG",
+      "team" : "SKT T1",
+      "avgpp" : 133,
+      "players" : [ ]
+    }, {
+      "refId" : 5,
+      "id" : 0,
+      "nick" : "Bang",
+      "lane" : "ADC",
+      "team" : "SKT T1",
+      "avgpp" : 150,
+      "players" : [ ]
+    }, {
+      "refId" : 6,
+      "id" : 0,
+      "nick" : "Wolf",
+      "lane" : "SUP",
+      "team" : "SKT T1",
+      "avgpp" : 109,
+      "players" : [ ]
+    } ]
   },
-  "managers" : [ ],
-  "subworkers" : [ ]
-} ]
+  {
+    "refId" : 2,
+    "id" : 0,
+    "nick" : "Faker",
+    "lane" : "MID",
+    "team" : "SKT T1",
+    "avgpp" : 147,
+    "players" : [ ]
+  },
+  {
+    "refId" : 3,
+    "id" : 0,
+    "nick" : "Huni",
+    "lane" : "TOP",
+    "team" : "SKT T1",
+    "avgpp" : 155,
+    "players" : [ ]
+  },
+  {
+    "refId" : 4,
+    "id" : 0,
+    "nick" : "Peanut",
+    "lane" : "JNG",
+    "team" : "SKT T1",
+    "avgpp" : 133,
+    "players" : [ ]
+  },
+  {
+    "refId" : 5,
+    "id" : 0,
+    "nick" : "Bang",
+    "lane" : "ADC",
+    "team" : "SKT T1",
+    "avgpp" : 150,
+    "players" : [ ]
+  },
+  {
+    "refId" : 6,
+    "id" : 0,
+    "nick" : "Wolf",
+    "lane" : "SUP",
+    "team" : "SKT T1",
+    "avgpp" : 109,
+    "players" : [ ]
+  }
+]

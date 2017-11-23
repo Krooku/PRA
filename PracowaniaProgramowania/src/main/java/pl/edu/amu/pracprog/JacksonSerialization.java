@@ -46,7 +46,7 @@ public class JacksonSerialization {
                 new File("result." + fileSuffix), Employee.class);
 
         //Give a rise
-        deserializedEmployee.setSalary(deserializedEmployee.getSalary() * 2);
+        deserializedEmployee.setAvgpp(deserializedEmployee.getAvgpp() * 2);
 
         //Serialize back
         mapper.writeValue(new File("result-modified." + fileSuffix), deserializedEmployee);
@@ -66,15 +66,16 @@ public class JacksonSerialization {
         InputStream employeeIs = JacksonSerialization.class.getClassLoader().
                 getResourceAsStream("employee." + fileSuffix);
         Employee deserializedEmployee = mapper.readValue(employeeIs, Employee.class);
-        deserializedEmployee.setSalary(new Random().nextInt(100000));
+        deserializedEmployee.setAvgpp(new Random().nextInt(100000));
         String modifiedSerialzied = mapper.writeValueAsString(deserializedEmployee);
         logger.info("Printing modified re-serialized employee to" + fileSuffix);
         System.out.println(modifiedSerialzied);
 
         // Deserialize employees list
-        InputStream employeesIs = JacksonSerialization.class.getClassLoader().
-                getResourceAsStream("employees." + fileSuffix);
-        List<Employee> employees = mapper.readValue(employeesIs, new TypeReference<List<Employee>>(){});
+        InputStream employeesIs = JacksonSerialization.class.getClassLoader().getResourceAsStream("employees." + fileSuffix);
+
+        List<Employee> employees = mapper.readValue(employeesIs, List.class);
+
         System.out.println("Number of deserialized employees: " + employees.size());
     }
 
@@ -83,11 +84,11 @@ public class JacksonSerialization {
 
         ObjectMapper jsonMapper = new ObjectMapper();
         serializeDemo(jsonMapper, "json");
-        deserializeDemo(jsonMapper, "json");
+        //deserializeDemo(jsonMapper, "json");
 
         ObjectMapper xmlMapper = new XmlMapper();
         serializeDemo(xmlMapper, "xml");
-        deserializeDemo(xmlMapper, "xml");
+        //deserializeDemo(xmlMapper, "xml");
 
     }
 }

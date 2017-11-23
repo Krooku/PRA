@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.joda.ser.DateTimeSerializer;
 import org.joda.time.DateTime;
+import java.util.Date;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,113 +12,96 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,property="refId", scope=Employee.class)
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,property="id", scope=Employee.class)
 @Entity
-@Table(name = "EMPLOYEE", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"first_name","last_name"})})
+@Table(name = "EMPLOYEE", uniqueConstraints = {@UniqueConstraint(columnNames = {"nick"})})
 public class Employee {
 
-    @Id @GeneratedValue
-    @Column(name = "id")
-    private int id;
+    @Column(name = "nick", nullable = false, unique = true)
+    private String nick;
 
-    @Column(name = "first_name")
-    private String firstName;
+    @Column(name = "lane")
+    private String lane;
 
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "team")
+    private String team;
 
-    @JsonProperty("pieniadz")
-    @Column(name = "salary")
-    private int salary;
+    @Column(name = "avqpp")
+    private int avgpp;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private DateTime birth;
-
-    @JsonIgnore
-    @Column(name = "PESEL", nullable = false, unique = true)
-    private int pesel;
+    @Column(name = "joined", nullable = true)
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    private DateTime joined;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="Address_ID", referencedColumnName = "id")
     Address address;
 
-    @ManyToMany(mappedBy = "subworkers", cascade = CascadeType.ALL)
-    private List<Employee> managers = new ArrayList<Employee>();
-
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Employee>  main_players = new ArrayList<>();
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private List<Employee>  subworkers = new ArrayList<>();
-
+    private List<Employee>  reserve_players = new ArrayList<>();
 
     public Employee() {}
 
-    public List<Employee> getManagers() {
-        return managers;
+    public List<Employee> getMainPlayers() {
+        return main_players;
     }
 
-    public void setManagers(List<Employee> managers) {
-        this.managers = managers;
+    public List<Employee> getReservePlayers() {
+        return reserve_players;
     }
 
-    public List<Employee> getSubworkers() {
-        return subworkers;
+    public void setMainPlayers(List<Employee> main) {
+        this.main_players = main_players;
     }
 
-    public void setSubworkers(List<Employee> subworkers) {
-        this.subworkers = subworkers;
+    public void setReservePlayers(List<Employee> reserve) {
+        this.reserve_players = reserve_players;
     }
 
-    public int getId() {
-        return id;
+    public String getNick() {
+        return nick;
+    }
+    public void setNick( String nick ) {
+        this.nick = nick;
     }
 
-    public void setId( int id ) {
-        this.id = id;
+    public String getLane() {
+        return lane;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public void setLane( String lane ) {
+        this.lane = lane;
     }
 
-    public void setFirstName( String first_name ) {
-        this.firstName = first_name;
+    public String getTeam() {
+        return team;
     }
 
-    public String getLastName() {
-        return lastName;
+    public void setTeam( String team ) {
+        this.team = team;
     }
 
-    public void setLastName( String last_name ) {
-        this.lastName = last_name;
+    public int getAvgpp() {
+        return avgpp;
     }
 
-    public int getSalary() {
-        return salary;
+    public void setAvgpp( int avgpp ) {
+        this.avgpp = avgpp;
     }
 
-    public void setSalary( int salary ) {
-        this.salary = salary;
+    public DateTime getJoinedData() {
+        return joined;
     }
 
-    public int getPesel() {
-        return pesel;
-    }
-
-    public void setPesel(int pesel) {
-        this.pesel = pesel;
+    public void setJoinedData(DateTime joined) {
+        this.joined = joined;
     }
 
     public Address getAddress() {
         return address;
-    }
-
-    public DateTime getBirth() {
-        return birth;
-    }
-
-    public void setBirth(DateTime birth) {
-        this.birth = birth;
     }
 
     public void setAddress(Address address) {

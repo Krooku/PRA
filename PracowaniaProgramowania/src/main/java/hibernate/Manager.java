@@ -3,15 +3,12 @@ package hibernate;
 import hibernate.model.Address;
 import hibernate.model.Employee;
 import hibernate.queries.Queries;
+import pl.edu.amu.pracprog.ModelObjectsCreator;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 
 class Manager {
 
@@ -29,53 +26,27 @@ class Manager {
 
             entityManager = entityManagerFactory.createEntityManager();
 
+            //rozpocznij transakcje
             entityManager.getTransaction().begin();
 
-            //add 1
-            Employee emp = new Employee();
-            emp.setFirstName("Jan");
-            emp.setLastName("Polak" + new Random().nextInt());
-            emp.setSalary(100);
-            emp.setPesel(new Random().nextInt());
+            ModelObjectsCreator objectsCreator = new ModelObjectsCreator();
+            List<Employee> employees = objectsCreator.getEmployees();
 
-            //add 2
-            Employee emp2 = new Employee();
-            emp2.setFirstName("Roman");
-            emp2.setLastName("Polak" + new Random().nextInt());
-            emp2.setSalary(100);
-            emp2.setPesel(new Random().nextInt());
-
-            //save 2
-            entityManager.persist(emp2);
-
-            //add address
-            Address address = new Address();
-            address.setCity("poznan");
-            address.setStreet("poznanska");
-            address.setNr("1");
-            address.setPostcode("99090");
-
-            emp.setAddress(address);
-            emp2.setAddress(address);
-            emp.getSubworkers().add(emp2);
-
-            entityManager.persist(address);
-            entityManager.persist(emp);
-
-            Employee employee = entityManager.find(Employee.class, emp.getId());
-            if (employee == null) {
-                System.out.println(emp.getId() + " not found! ");
-            } else {
-                System.out.println("Found " + employee);
+            for(int i = 0; i < employees.size(); i++)
+            {
+                entityManager.persist(employees.get(i));
             }
+            Query query = entityManager.createQuery("SELECT k FROM Employee k");
+            List<Employee> resultquery = query.getResultList();
 
-            System.out.println("Employee " + employee.getId() + " " + employee.getFirstName() + employee.getLastName());
+            //odstep od logow
+            System.out.println("\n\n\n\n\n\n\n");
 
-            changeFirstGuyToNowak(entityManager);
+            //System.out.println(resultquery);
+            chooseBestPlayer(entityManager);
+            //changeFirstGuyToNowak(entityManager);
 
-            entityManager.getTransaction().commit();
-
-            System.out.println("Done");
+            //entityManager.getTransaction().commit();
 
             entityManager.close();
 
@@ -89,12 +60,11 @@ class Manager {
     }
 
     // read a page of empleyees and change first one to Nowak
-    static void changeFirstGuyToNowak(EntityManager entityManager) {
+    static void chooseBestPlayer(EntityManager entityManager) {
 
-        Query query = entityManager.createQuery("SELECT k FROM Employee k");
-        List<Employee> employees = new Queries(entityManager).getAllEmployeeByPage(1);
-
-        employees.get(0).setLastName("NowakPRE" + new Random().nextInt());
+        //Query query = entityManager.createQuery("SELECT k FROM Employee k");
+        List<Employee> employees = new Queries(entityManager).bestPlayer();
+        System.out.println("Najlepszy gracz to: " + employees.get(0));
 
     }
 

@@ -1,37 +1,55 @@
 <Employee>
+    <refId>1</refId>
     <id>0</id>
-    <firstName>Jan</firstName>
-    <lastName>Polak-861629283</lastName>
-    <pieniadz>100</pieniadz>
-    <pesel>1357603216</pesel>
-    <birth>2017-11-09 20:46:42</birth>
-    <address>
-        <id>0</id>
-        <street>poznanska</street>
-        <city>poznan</city>
-        <nr>1</nr>
-        <housenr/>
-        <postcode>99090</postcode>
-    </address>
-    <managers/>
-    <subworkers>
-        <subworkers>
+    <nick>kkOma</nick>
+    <lane>coach</lane>
+    <team>SKT T1</team>
+    <avgpp>0</avgpp>
+    <players>
+        <players>
+            <refId>2</refId>
             <id>0</id>
-            <firstName>Roman</firstName>
-            <lastName>Polak-1037956891</lastName>
-            <pieniadz>100</pieniadz>
-            <pesel>1416852224</pesel>
-            <birth>2017-11-09 20:46:42</birth>
-            <address>
-                <id>0</id>
-                <street>poznanska</street>
-                <city>poznan</city>
-                <nr>1</nr>
-                <housenr/>
-                <postcode>99090</postcode>
-            </address>
-            <managers/>
-            <subworkers/>
-        </subworkers>
-    </subworkers>
+            <nick>Faker</nick>
+            <lane>MID</lane>
+            <team>SKT T1</team>
+            <avgpp>147</avgpp>
+            <players/>
+        </players>
+        <players>
+            <refId>3</refId>
+            <id>0</id>
+            <nick>Huni</nick>
+            <lane>TOP</lane>
+            <team>SKT T1</team>
+            <avgpp>155</avgpp>
+            <players/>
+        </players>
+        <players>
+            <refId>4</refId>
+            <id>0</id>
+            <nick>Peanut</nick>
+            <lane>JNG</lane>
+            <team>SKT T1</team>
+            <avgpp>133</avgpp>
+            <players/>
+        </players>
+        <players>
+            <refId>5</refId>
+            <id>0</id>
+            <nick>Bang</nick>
+            <lane>ADC</lane>
+            <team>SKT T1</team>
+            <avgpp>150</avgpp>
+            <players/>
+        </players>
+        <players>
+            <refId>6</refId>
+            <id>0</id>
+            <nick>Wolf</nick>
+            <lane>SUP</lane>
+            <team>SKT T1</team>
+            <avgpp>109</avgpp>
+            <players/>
+        </players>
+    </players>
 </Employee>

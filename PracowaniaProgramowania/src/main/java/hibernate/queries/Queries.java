@@ -3,6 +3,7 @@ package hibernate.queries;
 import hibernate.model.Employee;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Parameter;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
@@ -15,10 +16,12 @@ public class Queries {
         this.entityManager = entityManager;
     }
 
-    public List<Employee> getEmployeeByName(String name) {
-        TypedQuery<Employee> query = entityManager.createQuery(
-                "SELECT c FROM Employee c WHERE c.lastName LIKE :name", Employee.class);
-        return query.setParameter("name", name).getResultList();
+    public List<Employee> getEmployeeByName(String nick)
+    {
+
+        TypedQuery<Employee> query = entityManager.createQuery("SELECT c FROM Employee c WHERE c.nick LIKE :nick", Employee.class);
+
+        return query.setParameter("nick", "elo").getResultList();
     }
 
     public List<Employee> getAllEmployeeByPage(int pagenr) {
@@ -38,6 +41,12 @@ public class Queries {
         query.setFirstResult((pagenr-1) * pageSize);
         query.setMaxResults(pageSize);
 
+        return query.getResultList();
+    }
+
+    public List<Employee> bestPlayer() {
+        //calculate total number
+        Query query = entityManager.createQuery("Select nick from Employee f where avgpp = (select max(avgpp) from Employee f)");
         return query.getResultList();
     }
 }

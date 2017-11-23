@@ -1,34 +1,49 @@
 {
+  "refId" : 1,
   "id" : 0,
-  "firstName" : "Jan",
-  "lastName" : "Polak1285020296",
-  "pieniadz": 100,
-  "pesel" : 1657198889,
-  "address" : {
+  "nick" : "kkOma",
+  "lane" : "coach",
+  "team" : "SKT T1",
+  "avgpp" : 0,
+  "players" : [ {
+    "refId" : 2,
     "id" : 0,
-    "street" : "poznanska",
-    "city" : "poznan",
-    "nr" : "1",
-    "housenr" : null,
-    "postcode" : "99090"
-  },
-  "managers" : [ ],
-  "subworkers" : [ {
+    "nick" : "Faker",
+    "lane" : "MID",
+    "team" : "SKT T1",
+    "avgpp" : 147,
+    "players" : [ ]
+  }, {
+    "refId" : 3,
     "id" : 0,
-    "firstName" : "Roman",
-    "lastName" : "Polak-539470772",
-    "pieniadz": 100,
-    "birth": "2017-11-09 20:46:42",
-    "pesel" : 96261543,
-    "address" : {
-      "id" : 0,
-      "street" : "poznanska",
-      "city" : "poznan",
-      "nr" : "1",
-      "housenr" : null,
-      "postcode" : "99090"
-    },
-    "managers" : [ ],
-    "subworkers" : [ ]
+    "nick" : "Huni",
+    "lane" : "TOP",
+    "team" : "SKT T1",
+    "avgpp" : 155,
+    "players" : [ ]
+  }, {
+    "refId" : 4,
+    "id" : 0,
+    "nick" : "Peanut",
+    "lane" : "JNG",
+    "team" : "SKT T1",
+    "avgpp" : 133,
+    "players" : [ ]
+  }, {
+    "refId" : 5,
+    "id" : 0,
+    "nick" : "Bang",
+    "lane" : "ADC",
+    "team" : "SKT T1",
+    "avgpp" : 150,
+    "players" : [ ]
+  }, {
+    "refId" : 6,
+    "id" : 0,
+    "nick" : "Wolf",
+    "lane" : "SUP",
+    "team" : "SKT T1",
+    "avgpp" : 109,
+    "players" : [ ]
   } ]
 }
