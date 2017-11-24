@@ -1,102 +1,147 @@
 <ArrayList>
     <item>
-        <refId>1</refId>
-        <id>0</id>
+        <id>1</id>
         <nick>kkOma</nick>
         <lane>coach</lane>
         <team>SKT T1</team>
         <avgpp>0</avgpp>
-        <players>
-            <players>
-                <refId>2</refId>
-                <id>0</id>
+        <joined>09-10-2010</joined>
+        <reservePlayers>
+            <reservePlayers>
+                <id>2</id>
+                <nick>Blank</nick>
+                <lane>jungle</lane>
+                <team>SKT T1</team>
+                <avgpp>131</avgpp>
+                <joined>24-11-2017</joined>
+                <reservePlayers/>
+                <joinedData>2017-11-24T00:03:28.876Z</joinedData>
+                <mainPlayers/>
+            </reservePlayers>
+        </reservePlayers>
+        <joinedData>2010-10-09T22:00:00.000Z</joinedData>
+        <mainPlayers>
+            <mainPlayers>
+                <id>3</id>
                 <nick>Faker</nick>
                 <lane>MID</lane>
                 <team>SKT T1</team>
                 <avgpp>147</avgpp>
-                <players/>
-            </players>
-            <players>
-                <refId>3</refId>
-                <id>0</id>
+                <joined>09-10-2010</joined>
+                <reservePlayers/>
+                <joinedData>2010-10-09T22:00:00.000Z</joinedData>
+                <mainPlayers/>
+            </mainPlayers>
+            <mainPlayers>
+                <id>4</id>
                 <nick>Huni</nick>
                 <lane>TOP</lane>
                 <team>SKT T1</team>
                 <avgpp>155</avgpp>
-                <players/>
-            </players>
-            <players>
-                <refId>4</refId>
-                <id>0</id>
+                <joined>09-10-2010</joined>
+                <reservePlayers/>
+                <joinedData>2010-10-09T22:00:00.000Z</joinedData>
+                <mainPlayers/>
+            </mainPlayers>
+            <mainPlayers>
+                <id>5</id>
                 <nick>Peanut</nick>
                 <lane>JNG</lane>
                 <team>SKT T1</team>
                 <avgpp>133</avgpp>
-                <players/>
-            </players>
-            <players>
-                <refId>5</refId>
-                <id>0</id>
+                <joined>09-10-2010</joined>
+                <reservePlayers/>
+                <joinedData>2010-10-09T22:00:00.000Z</joinedData>
+                <mainPlayers/>
+            </mainPlayers>
+            <mainPlayers>
+                <id>6</id>
                 <nick>Bang</nick>
                 <lane>ADC</lane>
                 <team>SKT T1</team>
                 <avgpp>150</avgpp>
-                <players/>
-            </players>
-            <players>
-                <refId>6</refId>
-                <id>0</id>
+                <joined>09-10-2010</joined>
+                <reservePlayers/>
+                <joinedData>2010-10-09T22:00:00.000Z</joinedData>
+                <mainPlayers/>
+            </mainPlayers>
+            <mainPlayers>
+                <id>7</id>
                 <nick>Wolf</nick>
                 <lane>SUP</lane>
                 <team>SKT T1</team>
                 <avgpp>109</avgpp>
-                <players/>
-            </players>
-        </players>
+                <joined>09-10-2010</joined>
+                <reservePlayers/>
+                <joinedData>2010-10-09T22:00:00.000Z</joinedData>
+                <mainPlayers/>
+            </mainPlayers>
+        </mainPlayers>
     </item>
     <item>
-        <refId>2</refId>
-        <id>0</id>
+        <id>2</id>
+        <nick>Blank</nick>
+        <lane>jungle</lane>
+        <team>SKT T1</team>
+        <avgpp>131</avgpp>
+        <joined>24-11-2017</joined>
+        <reservePlayers/>
+        <joinedData>2017-11-24T00:03:28.876Z</joinedData>
+        <mainPlayers/>
+    </item>
+    <item>
+        <id>3</id>
         <nick>Faker</nick>
         <lane>MID</lane>
         <team>SKT T1</team>
         <avgpp>147</avgpp>
-        <players/>
+        <joined>09-10-2010</joined>
+        <reservePlayers/>
+        <joinedData>2010-10-09T22:00:00.000Z</joinedData>
+        <mainPlayers/>
     </item>
     <item>
-        <refId>3</refId>
-        <id>0</id>
+        <id>4</id>
         <nick>Huni</nick>
         <lane>TOP</lane>
         <team>SKT T1</team>
         <avgpp>155</avgpp>
-        <players/>
+        <joined>09-10-2010</joined>
+        <reservePlayers/>
+        <joinedData>2010-10-09T22:00:00.000Z</joinedData>
+        <mainPlayers/>
     </item>
     <item>
-        <refId>4</refId>
-        <id>0</id>
+        <id>5</id>
         <nick>Peanut</nick>
         <lane>JNG</lane>
         <team>SKT T1</team>
         <avgpp>133</avgpp>
-        <players/>
+        <joined>09-10-2010</joined>
+        <reservePlayers/>
+        <joinedData>2010-10-09T22:00:00.000Z</joinedData>
+        <mainPlayers/>
     </item>
     <item>
-        <refId>5</refId>
-        <id>0</id>
+        <id>6</id>
         <nick>Bang</nick>
         <lane>ADC</lane>
         <team>SKT T1</team>
         <avgpp>150</avgpp>
-        <players/>
+        <joined>09-10-2010</joined>
+        <reservePlayers/>
+        <joinedData>2010-10-09T22:00:00.000Z</joinedData>
+        <mainPlayers/>
     </item>
     <item>
-        <refId>6</refId>
-        <id>0</id>
-        <nick>Wolf</nick>
-        <lane>SUP</lane>
+        <id>6</id>
+        <nick>Bang</nick>
+        <lane>ADC</lane>
         <team>SKT T1</team>
-        <avgpp>109</avgpp>
-        <players/>
+        <avgpp>150</avgpp>
+        <joined>09-10-2010</joined>
+        <reservePlayers/>
+        <joinedData>2010-10-09T22:00:00.000Z</joinedData>
+        <mainPlayers/>
     </item>
 </ArrayList>

@@ -33,15 +33,21 @@ public class Employee {
     @JsonFormat(pattern = "dd-MM-yyyy")
     private DateTime joined;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="Address_ID", referencedColumnName = "id")
-    Address address;
+    //@OneToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name="Address_ID", referencedColumnName = "id")
+    //Address address;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<Employee>  main_players = new ArrayList<>();
+    @ManyToMany(mappedBy = "main_players", cascade = CascadeType.ALL)
+    private List<Employee> main_players = new ArrayList<Employee>();
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<Employee>  reserve_players = new ArrayList<>();
+    //@ManyToMany(cascade = CascadeType.ALL)
+    //private List<Employee>  main_players = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "reserve_players", cascade = CascadeType.ALL)
+    private List<Employee> reserve_players = new ArrayList<Employee>();
+
+    //@ManyToMany(cascade = CascadeType.ALL)
+    //private List<Employee>  reserve_players = new ArrayList<>();
 
     public Employee() {}
 
@@ -53,13 +59,29 @@ public class Employee {
         return reserve_players;
     }
 
-    public void setMainPlayers(List<Employee> main) {
+    public void setMainPlayers(List<Employee> main_players) {
         this.main_players = main_players;
     }
 
     public void setReservePlayers(List<Employee> reserve) {
-        this.reserve_players = reserve_players;
+        this.reserve_players = reserve;
     }
+
+    /*public List<Employee> getMain() {
+        return main_players;
+    }
+
+    public void setMain(List<Employee> main_players) {
+        this.main_players = main_players;
+    }
+
+    public List<Employee> getReserve() {
+        return reserve_players;
+    }
+
+    public void setReserve(List<Employee> reserve_players) {
+        this.reserve_players = reserve_players;
+    }*/
 
     public String getNick() {
         return nick;
@@ -100,13 +122,13 @@ public class Employee {
         this.joined = joined;
     }
 
-    public Address getAddress() {
+    /*public Address getAddress() {
         return address;
     }
 
     public void setAddress(Address address) {
         this.address = address;
-    }
+    }*/
 
 
 }

@@ -1,20 +1,37 @@
 package hibernate;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.fasterxml.jackson.datatype.joda.JodaModule;
 import hibernate.model.Address;
 import hibernate.model.Employee;
 import hibernate.queries.Queries;
 import pl.edu.amu.pracprog.ModelObjectsCreator;
 
 import javax.persistence.*;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import hibernate.xml_json;
+
+import static hibernate.xml_json.deserializeDemo;
+import static hibernate.xml_json.serializeDemo;
 
 class Manager {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        System.out.println("Start");
+        ObjectMapper jsonMapper = new ObjectMapper();
+        serializeDemo(jsonMapper, "json", false);
+        deserializeDemo(jsonMapper, "json");
+
+        ObjectMapper xmlMapper = new XmlMapper();
+        serializeDemo(xmlMapper, "xml", false);
+        deserializeDemo(xmlMapper, "xml");
 
         EntityManager entityManager = null;
 
@@ -42,11 +59,9 @@ class Manager {
             //odstep od logow
             System.out.println("\n\n\n\n\n\n\n");
 
-            //System.out.println(resultquery);
             chooseBestPlayer(entityManager);
-            //changeFirstGuyToNowak(entityManager);
 
-            //entityManager.getTransaction().commit();
+            entityManager.getTransaction().commit();
 
             entityManager.close();
 
@@ -67,5 +82,4 @@ class Manager {
         System.out.println("Najlepszy gracz to: " + employees.get(0));
 
     }
-
 }

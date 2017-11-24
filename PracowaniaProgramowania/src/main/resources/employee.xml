@@ -1,55 +1,79 @@
 <Employee>
-    <refId>1</refId>
-    <id>0</id>
+    <id>1</id>
     <nick>kkOma</nick>
     <lane>coach</lane>
     <team>SKT T1</team>
     <avgpp>0</avgpp>
-    <players>
-        <players>
-            <refId>2</refId>
-            <id>0</id>
+    <joined>24-11-2017</joined>
+    <mainPlayers>
+        <mainPlayers>
+            <id>2</id>
             <nick>Faker</nick>
             <lane>MID</lane>
             <team>SKT T1</team>
             <avgpp>147</avgpp>
-            <players/>
-        </players>
-        <players>
-            <refId>3</refId>
-            <id>0</id>
+            <joined>24-11-2017</joined>
+            <mainPlayers/>
+            <joinedData>2017-11-24T01:25:44.039Z</joinedData>
+            <reservePlayers/>
+        </mainPlayers>
+        <mainPlayers>
+            <id>3</id>
             <nick>Huni</nick>
             <lane>TOP</lane>
             <team>SKT T1</team>
             <avgpp>155</avgpp>
-            <players/>
-        </players>
-        <players>
-            <refId>4</refId>
-            <id>0</id>
+            <joined>24-11-2017</joined>
+            <mainPlayers/>
+            <joinedData>2017-11-24T01:25:44.039Z</joinedData>
+            <reservePlayers/>
+        </mainPlayers>
+        <mainPlayers>
+            <id>4</id>
             <nick>Peanut</nick>
             <lane>JNG</lane>
             <team>SKT T1</team>
             <avgpp>133</avgpp>
-            <players/>
-        </players>
-        <players>
-            <refId>5</refId>
-            <id>0</id>
+            <joined>24-11-2017</joined>
+            <mainPlayers/>
+            <joinedData>2017-11-24T01:25:44.039Z</joinedData>
+            <reservePlayers/>
+        </mainPlayers>
+        <mainPlayers>
+            <id>5</id>
             <nick>Bang</nick>
             <lane>ADC</lane>
             <team>SKT T1</team>
             <avgpp>150</avgpp>
-            <players/>
-        </players>
-        <players>
-            <refId>6</refId>
-            <id>0</id>
+            <joined>24-11-2017</joined>
+            <mainPlayers/>
+            <joinedData>2017-11-24T01:25:44.039Z</joinedData>
+            <reservePlayers/>
+        </mainPlayers>
+        <mainPlayers>
+            <id>6</id>
             <nick>Wolf</nick>
             <lane>SUP</lane>
             <team>SKT T1</team>
             <avgpp>109</avgpp>
-            <players/>
-        </players>
-    </players>
+            <joined>24-11-2017</joined>
+            <mainPlayers/>
+            <joinedData>2017-11-24T01:25:44.039Z</joinedData>
+            <reservePlayers/>
+        </mainPlayers>
+    </mainPlayers>
+    <joinedData>2017-11-24T01:25:44.039Z</joinedData>
+    <reservePlayers>
+        <reservePlayers>
+            <id>7</id>
+            <nick>Blank</nick>
+            <lane>jungle</lane>
+            <team>SKT T1</team>
+            <avgpp>131</avgpp>
+            <joined>24-11-2017</joined>
+            <mainPlayers/>
+            <joinedData>2017-11-24T01:25:44.039Z</joinedData>
+            <reservePlayers/>
+        </reservePlayers>
+    </reservePlayers>
 </Employee>

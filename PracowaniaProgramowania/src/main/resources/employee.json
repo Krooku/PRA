@@ -1,49 +1,71 @@
 {
-  "refId" : 1,
-  "id" : 0,
+  "id" : 1,
   "nick" : "kkOma",
   "lane" : "coach",
   "team" : "SKT T1",
   "avgpp" : 0,
-  "players" : [ {
-    "refId" : 2,
-    "id" : 0,
+  "joined" : "24-11-2017",
+  "mainPlayers" : [ {
+    "id" : 2,
     "nick" : "Faker",
     "lane" : "MID",
     "team" : "SKT T1",
     "avgpp" : 147,
-    "players" : [ ]
+    "joined" : "24-11-2017",
+    "mainPlayers" : [ ],
+    "joinedData" : "2017-11-24T01:25:43.773Z",
+    "reservePlayers" : [ ]
   }, {
-    "refId" : 3,
-    "id" : 0,
+    "id" : 3,
     "nick" : "Huni",
     "lane" : "TOP",
     "team" : "SKT T1",
     "avgpp" : 155,
-    "players" : [ ]
+    "joined" : "24-11-2017",
+    "mainPlayers" : [ ],
+    "joinedData" : "2017-11-24T01:25:43.773Z",
+    "reservePlayers" : [ ]
   }, {
-    "refId" : 4,
-    "id" : 0,
+    "id" : 4,
     "nick" : "Peanut",
     "lane" : "JNG",
     "team" : "SKT T1",
     "avgpp" : 133,
-    "players" : [ ]
+    "joined" : "24-11-2017",
+    "mainPlayers" : [ ],
+    "joinedData" : "2017-11-24T01:25:43.773Z",
+    "reservePlayers" : [ ]
   }, {
-    "refId" : 5,
-    "id" : 0,
+    "id" : 5,
     "nick" : "Bang",
     "lane" : "ADC",
     "team" : "SKT T1",
     "avgpp" : 150,
-    "players" : [ ]
+    "joined" : "24-11-2017",
+    "mainPlayers" : [ ],
+    "joinedData" : "2017-11-24T01:25:43.773Z",
+    "reservePlayers" : [ ]
   }, {
-    "refId" : 6,
-    "id" : 0,
+    "id" : 6,
     "nick" : "Wolf",
     "lane" : "SUP",
     "team" : "SKT T1",
     "avgpp" : 109,
-    "players" : [ ]
+    "joined" : "24-11-2017",
+    "mainPlayers" : [ ],
+    "joinedData" : "2017-11-24T01:25:43.773Z",
+    "reservePlayers" : [ ]
+  } ],
+  "joinedData" : "2017-11-24T01:25:43.743Z",
+  "reservePlayers" : [ {
+    "id" : 7,
+    "nick" : "Blank",
+    "lane" : "jungle",
+    "team" : "SKT T1",
+    "avgpp" : 131,
+    "joined" : "24-11-2017",
+    "mainPlayers" : [ ],
+    "joinedData" : "2017-11-24T01:25:43.773Z",
+    "reservePlayers" : [ ]
   } ]
 }
